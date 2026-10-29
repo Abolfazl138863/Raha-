@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#cfe6ff">
+<title>برای تو</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#e3f2ff;--bg2:#bcdcff;--card:#ffffffd9;--ink:#1d3a63;--soft:#5b7ba8;--accent:#4a9df8;--accent2:#8ec5ff;--pink:#ffc7e3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#0f1d38;--bg2:#162a52;--card:#1b2f5ae6;--ink:#e8f2ff;--soft:#a9c4ec;--accent:#6db3ff;--accent2:#3b78c9;--pink:#d98fb8}}
+:root[data-theme="dark"]{--bg1:#0f1d38;--bg2:#162a52;--card:#1b2f5ae6;--ink:#e8f2ff;--soft:#a9c4ec;--accent:#6db3ff;--accent2:#3b78c9;--pink:#d98fb8}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font-family:'Vazirmatn',Tahoma,sans-serif;color:var(--ink);background:linear-gradient(170deg,var(--bg1),var(--bg2)) fixed;min-height:100vh;overflow-x:hidden;line-height:1.9;font-size:16px}
+.bubbles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bubbles i{position:absolute;bottom:-60px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff9,var(--accent2));opacity:.4;animation:rise linear infinite}
+@keyframes rise{to{transform:translateY(-120vh)}}
+main{position:relative;z-index:1;width:100%;max-width:480px;margin:0 auto;padding:20px 16px 48px}
+.hero{text-align:center;padding:28px 0 4px}
+.hero .big{font-size:clamp(56px,18vw,76px);display:inline-block;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{50%{transform:scale(1.15)}}
+h1{font-size:clamp(1.5rem,7vw,2rem);font-weight:800;line-height:1.5;margin:6px 0;background:linear-gradient(90deg,var(--accent),#b58cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--soft);margin:0 0 6px;font-size:.98rem}
+.card{background:var(--card);border-radius:24px;padding:20px 18px;margin:16px 0;box-shadow:0 8px 24px #4a9df826;border:1px solid #ffffff66}
+.card h2{margin:0 0 6px;font-size:1.15rem;line-height:1.7}
+.card p{margin:0}
+button{font-family:inherit;cursor:pointer;border:0;border-radius:999px;min-height:50px;padding:12px 22px;font-size:1.02rem;font-weight:600;color:#fff;background:linear-gradient(135deg,var(--accent),#7b8cff);box-shadow:0 8px 18px #4a9df855;touch-action:manipulation;width:100%}
+button:active{transform:scale(.96)}
+.ghost{background:var(--card);color:var(--ink);box-shadow:none;border:1.5px solid var(--accent2)}
+.row{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.quote{text-align:center;font-size:1.08rem;font-weight:600}
+.emo{font-size:44px;margin-top:6px;letter-spacing:6px}
+.overlay{position:fixed;inset:0;background:#0b1a3a88;display:none;align-items:center;justify-content:center;z-index:50;padding:20px}
+.overlay.show{display:flex}
+.pop{width:100%;max-width:340px;background:var(--bg1);border-radius:28px;padding:28px 22px;text-align:center;box-shadow:0 20px 60px #0006;animation:pop .35s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.pop .e{font-size:60px;line-height:1.3}
+.pop p{margin:6px 0 18px;font-size:1.08rem}
+.fly{position:fixed;bottom:-50px;font-size:30px;pointer-events:none;z-index:99;animation:up 2.6s ease-in forwards;will-change:transform}
+@keyframes up{0%{transform:translateY(0) scale(.8);opacity:1}80%{opacity:1}100%{transform:translateY(-115vh) scale(1.5);opacity:0}}
+footer{text-align:center;color:var(--soft);font-size:.9rem;margin-top:26px}
+</style>
+</head>
+<body>
+<div class="bubbles" id="bubbles"></div>
+<main>
+  <section class="hero">
+    <div class="big">💙</div>
+    <h1>این سایت فقط برای توئه</h1>
+    <p class="sub">چون از دوریم نمیتونم بیام کنارت گفتم یه گوشه ی کوچیک از اینترنتو رو برات آبی کنم</p>
+    <div class="row">
+      <button type="button" onclick="openPop(0)">یه پیام برات دارم</button>
+      <button type="button" class="ghost" onclick="openPop(3)">بغل مجازی</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>امروز سخت تره میدونم</h2>
+    <p>امروز لازم نیست کاره خاصی بکنی کوشولو فقط همینجوری برو دراز بکش زیر پتو و استراحتتت کن</p>
+  </section>
+
+  <section class="card">
+    <h2>یادته کاچی رو بهت یاد دادم</h2>
+    <p>یادت نره امروز یه کاچی گرم برای خودت درست کنی همونی که بهت یاد دادم تو بلدی و از پسش برمیای</p>
+    <div class="row"><button type="button" onclick="openPop(1)">اگه من اونجا بودم</button></div>
+  </section>
+
+  <section class="card quote">
+    دوره ی بدی هم که باشه یه نفر هست که حواسش بهته
+    <div class="emo">🌹💋❤️💕</div>
+    <div class="row"><button type="button" onclick="burst(['💋','💕','💋','❤️'])">انرژی بگیر</button></div>
+  </section>
+
+  <footer>ساخته شده با ذوققق فقط برای تو</footer>
+</main>
+
+<div class="overlay" id="ov" onclick="if(event.target===this)closePop()">
+  <div class="pop">
+    <div class="e" id="pe"></div>
+    <p id="pt"></p>
+    <button type="button" onclick="closePop()">باشه</button>
+  </div>
+</div>
+
+<script>
+var msgs=[
+ {e:'🌷',t:'امیدوارم زودتر خوب بشی و من کنارتم حتی از این دوری'},
+ {e:'🥣',t:'اگه خودم اونجا بودم برات کاچی درست میکردم و کنارت مینشستم تا حالت بهتر بشه'},
+ {e:'💙',t:'یادته بهت قول داده بودم برات سایت آبی درست کنمم؟'},
+ {e:'🤗',t:'یه بغل محکم و گرم از من برای تو هر وقت لازم داشتی دوباره بزن'}
+];
+var DEF=['💙','💫'];
+function burst(list){
+  list=list||DEF;
+  for(var k=0;k<10;k++){(function(k){
+    setTimeout(function(){
+      var h=document.createElement('div');
+      h.className='fly';
+      h.textContent=list[k%list.length];
+      h.style.left=(5+Math.random()*85)+'vw';
+      h.style.animationDuration=(2.2+Math.random()*1.4)+'s';
+      document.body.appendChild(h);
+      setTimeout(function(){h.remove()},3800);
+    },k*90);
+  })(k);}
+}
+function openPop(i){
+  document.getElementById('pe').textContent=msgs[i].e;
+  document.getElementById('pt').textContent=msgs[i].t;
+  document.getElementById('ov').classList.add('show');
+  burst(i===3?['🤗','💙']:null);
+}
+function closePop(){document.getElementById('ov').classList.remove('show')}
+var b=document.getElementById('bubbles');
+for(var i=0;i<12;i++){var d=document.createElement('i');var z=14+Math.random()*36;d.style.cssText='width:'+z+'px;height:'+z+'px;left:'+Math.random()*100+'%;animation-duration:'+(10+Math.random()*14)+'s;animation-delay:-'+Math.random()*12+'s';b.appendChild(d)}
+setTimeout(function(){openPop(2)},2500);
+</script>
+</body>
+</html>
